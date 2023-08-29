@@ -10,10 +10,12 @@ const connect = () => {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
+  conn.on("data", (data) => {
+    process.stdout.write(data);
+  });
+
   return conn;
 };
 
 console.log("Connecting ...");
 connect();
-
-//30mins
